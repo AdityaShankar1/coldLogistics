@@ -2,13 +2,16 @@ package com.coldchain.infrastructure.adapter.out.persistence;
 
 import com.coldchain.application.port.out.IVaccineRepository;
 import com.coldchain.domain.model.VaccineBatch;
-import com.coldchain.infrastructure.adapter.out.persistence.entity.VaccineBatchEntity;
 import com.coldchain.infrastructure.adapter.out.persistence.entity.StorageUnitEntity;
+import com.coldchain.infrastructure.adapter.out.persistence.entity.VaccineBatchEntity;
 import com.coldchain.infrastructure.adapter.out.persistence.repository.JpaVaccineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Component
 @RequiredArgsConstructor
@@ -20,12 +23,19 @@ public class VaccinePersistenceAdapter implements IVaccineRepository {
     public VaccineBatch save(VaccineBatch batch) {
         VaccineBatchEntity entity = mapToEntity(batch);
         VaccineBatchEntity savedEntity = jpaVaccineRepository.save(entity);
-        return mapToDomain(savedEntity); // Check this line
+        return mapToDomain(savedEntity);
     }
 
     @Override
     public Optional<VaccineBatch> findByBatchNumber(String batchNumber) {
-        return jpaVaccineRepository.findById(batchNumber).map(this::mapToDomain); // Check this line
+        return jpaVaccineRepository.findById(batchNumber).map(this::mapToDomain);
+    }
+
+    @Override
+    public List<VaccineBatch> findAll() {
+        return StreamSupport.stream(jpaVaccineRepository.findAll().spliterator(), false)
+                .map(this::mapToDomain)
+                .collect(Collectors.toList());
     }
 
     private VaccineBatchEntity mapToEntity(VaccineBatch domain) {
@@ -43,14 +53,13 @@ public class VaccinePersistenceAdapter implements IVaccineRepository {
         return entity;
     }
 
-    // Ensure this method exists and takes VaccineBatchEntity as parameter
     private VaccineBatch mapToDomain(VaccineBatchEntity entity) {
-        // Here you would map StorageUnitEntity back to StorageUnit domain model if needed
+        // Mapping storage unit back needs care based on domain model
         return new VaccineBatch(
                 entity.getBatchNumber(),
                 entity.getVaccineType(),
                 entity.getExpiryDate(),
-                null // Mapping storage unit back needs care
+                null
         );
     }
 }

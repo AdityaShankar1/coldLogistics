@@ -5,24 +5,38 @@ import com.coldchain.domain.model.VaccineBatch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate; // <-- ADD THIS LINE
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/vaccines")
 @RequiredArgsConstructor
 public class VaccineController {
 
-    private final IVaccineService vaccineService;
+    private final IVaccineService vaccineService; // Inject the service
+
+    @GetMapping
+    public ResponseEntity<List<VaccineBatch>> getAllBatches() {
+        // Use the service method
+        return ResponseEntity.ok(vaccineService.getAllBatches());
+    }
+
+    @GetMapping("/{batchNumber}")
+    public ResponseEntity<VaccineBatch> getBatchById(@PathVariable String batchNumber) {
+        return vaccineService.getBatch(batchNumber)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @PostMapping
     public ResponseEntity<VaccineBatch> registerBatch(@RequestBody RegisterBatchRequest request) {
         VaccineBatch batch = vaccineService.registerBatch(
-            request.batchNumber(), 
-            request.vaccineType(), 
-            request.expiryDate()
-        );
+                request.batchNumber(),
+                request.vaccineType(),
+                request.expiryDate());
         return ResponseEntity.ok(batch);
     }
 
-    // Record for request body
-    public record RegisterBatchRequest(String batchNumber, String vaccineType, String expiryDate) {}
+    public record RegisterBatchRequest(String batchNumber, String vaccineType, LocalDate expiryDate) {
+    }
 }
