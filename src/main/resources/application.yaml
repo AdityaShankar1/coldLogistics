@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: coldchain
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coldlogistics
+    username: postgres
+    password: Pass1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  flyway:
+    enabled: true
