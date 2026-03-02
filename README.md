@@ -1,8 +1,8 @@
-# ColdChain Portal
+# ColdChain Portal:
 
 A modern, production-ready dashboard for managing vaccine inventory and logistics, built with a focus on modularity, testability, and clean code principles.
 
-## ✨ Features
+## ✨ Features:
 * **Vaccine CRUD**: Create, Read, Update, and Delete vaccine batches.
 * **Modern UI**: Built with React, Vite, and Tailwind CSS for a responsive, clean interface.
 * **Data Visualization**: Pie chart representation of vaccine type distribution using Chart.js.
@@ -10,16 +10,16 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
 * **Methodology**: Developed using **Test-Driven Development (TDD)** for high code quality and reliability.
 * **Database**: PostgreSQL for persistent data storage.
 
-## 🛡️ Design Principles & Compliance
+## 🛡️ Design Principles & Compliance:
 
-### SOLID Principles Breakdown
+### SOLID Principles Breakdown:
 * **SRP (Single Responsibility Principle)**: VaccineRecord only holds data; VaccineValidator only checks health rules; AuditLogger only handles history.
 * **OCP (Open/Closed Principle)**: We use an ITemperatureProvider interface. If you move from manual entry to IoT sensors, you add a new class without touching existing code.
 * **LSP (Liskov Substitution Principle)**: UltraLowFreezer and StandardFridge both inherit from StorageUnit. Any method accepting StorageUnit must work with both without crashing.
 * **ISP (Interface Segregation Principle)**: Instead of one giant IBatchManager, we use IReadable, IWriteable, and IDeletable. The Auditor actor only sees the IReadable interface.
 * **DIP (Dependency Inversion Principle)**: High-level business logic depends on IBatchRepository, not a specific SQL or MongoDB implementation.
 
-### GRASP Patterns Application
+### GRASP Patterns Application:
 * **Information Expert**: The VaccineBatch knows its own expiryDate. Therefore, the method isViable() belongs inside VaccineBatch.
 * **Creator**: The StorageUnit creates a TemperatureLog, because it "contains" or aggregates the logs.
 * **Controller**: A VaccineProcessController handles system events (like addNewBatch()) so the UI doesn't talk directly to the database.
@@ -30,12 +30,11 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
 * **Indirection**: Using a Repository pattern to sit between the Controller and the Data.
 * **Protected Variations**: Wrapping the HIPAA encryption logic in a stable interface so changes in security laws don't break the whole app.
 
-## 🖼️ Application Screenshot
+## 🖼️ Application Screenshot:
 
 > <img width="1467" height="867" alt="image" src="https://github.com/user-attachments/assets/2f51c291-19ce-4146-bfe0-5909a040b712" />
 
-## 🏗️ Architectural Diagrams
-*Insert Mermaid diagrams below to visualize the architecture.*
+## 🏗️ Architectural Diagrams:
 
 ## UML Class Diagram:
 <img width="1254" height="770" alt="image" src="https://github.com/user-attachments/assets/1c1ae4b0-52b8-47ad-9372-efaf2bcbdb26" />
@@ -43,19 +42,19 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
 ## High Level System Design:
 <img width="1417" height="332" alt="image" src="https://github.com/user-attachments/assets/1490b7ea-108c-4a59-a7b4-d3bbe3e6e0d8" />
 
-## 🚀 Setup & Installation
+## 🚀 Setup & Installation:
 
 ### Prerequisites
 * Node.js (for frontend)
 * Java 25 JDK (for backend)
 * Docker (for PostgreSQL)
 
-### Backend Setup
+### Backend Setup:
 1.  Navigate to the backend directory.
 2.  Run the PostgreSQL container.
 3.  Build and run the Spring Boot application.
 
-### Frontend Setup
+### Frontend Setup:
 1.  Navigate to the `coldchain-frontend` directory.
 2.  Install dependencies:
     ```bash
@@ -65,4 +64,11 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
     ```bash
     npm run dev
     ```
+## 📜 Licensing & Usage Policy:
 
+### ✅ Allowed Use
+* **Educational Use**: Students may feel free to clone, modify, and use this project for personal portfolios or resumes.
+
+### ❌ Prohibited Use
+* **Direct Commercialization**: Copying the project directly (or with only cosmetic changes) and selling it as a product or service without significant added value, without crediting the repo.
+* **Attribution Removal**: Removing copyright notices or failing to credit this repository in derivative works.
