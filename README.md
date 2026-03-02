@@ -32,25 +32,14 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
 
 ## 🖼️ Application Screenshot
 
-> **[INSERT YOUR IMAGE HERE VIA GITHUB GUI]**
+> <img width="1467" height="867" alt="image" src="https://github.com/user-attachments/assets/2f51c291-19ce-4146-bfe0-5909a040b712" />
 
 ## 🏗️ Architectural Diagrams
 *Insert Mermaid diagrams below to visualize the architecture.*
 
-```mermaid
-graph TD
-    subgraph Adapter
-    Controller[API Controller]
-    end
-    subgraph Port
-    Service[Service Interface]
-    end
-    subgraph Domain
-    Model[Vaccine Domain]
-    end
-    Controller --> Service
-    Service --> Model
-```
+<img width="1254" height="770" alt="image" src="https://github.com/user-attachments/assets/1c1ae4b0-52b8-47ad-9372-efaf2bcbdb26" />
+
+<img width="1417" height="332" alt="image" src="https://github.com/user-attachments/assets/1490b7ea-108c-4a59-a7b4-d3bbe3e6e0d8" />
 
 ## 🚀 Setup & Installation
 
