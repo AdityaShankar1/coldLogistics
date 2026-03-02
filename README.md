@@ -37,15 +37,17 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
 ## 🏗️ Architectural Diagrams
 *Insert Mermaid diagrams below to visualize the architecture.*
 
+## UML Class Diagram:
 <img width="1254" height="770" alt="image" src="https://github.com/user-attachments/assets/1c1ae4b0-52b8-47ad-9372-efaf2bcbdb26" />
 
+## High Level System Design:
 <img width="1417" height="332" alt="image" src="https://github.com/user-attachments/assets/1490b7ea-108c-4a59-a7b4-d3bbe3e6e0d8" />
 
 ## 🚀 Setup & Installation
 
 ### Prerequisites
 * Node.js (for frontend)
-* Java JDK (for backend)
+* Java 25 JDK (for backend)
 * Docker (for PostgreSQL)
 
 ### Backend Setup
