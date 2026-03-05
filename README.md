@@ -67,9 +67,9 @@ A modern, production-ready dashboard for managing vaccine inventory and logistic
 ## 📜 Licensing & Usage Policy:
 
 ### ✅ Allowed Use
-* **Educational Use**: Students may feel free to clone, modify, and use this project for personal portfolios or resumes.
+* **Educational Use**: Students may feel free to clone, modify, and use this project for learning and building.
 * **Modifications**: If you feel this could've been built in a better way, you're free to contribute your changes. 
 
 ### ❌ Prohibited Use
-* **Direct Commercialization**: Copying the project directly (or with only cosmetic changes) and selling it as a product or service without significant added value, without crediting the repo.
+* **Direct Commercialization**: Copying the project directly (or with only cosmetic changes) and selling it as a product or service without significant added value.
 * **Attribution Removal**: Removing copyright notices or failing to credit this repository in derivative works.
